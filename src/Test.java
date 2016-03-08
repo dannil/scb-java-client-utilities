@@ -11,14 +11,33 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.dannil.scbjavaclient.client.SCBClient;
-import com.github.dannil.scbjavaclient.test.Entry;
+import com.github.dannil.scbjavaclient.client.AbstractClient;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
 
 public class Test {
 
 	private static Locale locale = new Locale("en");
-	private static SCBClient client = new SCBClient(locale);
+	private static DummyClient client = new DummyClient(locale);
+
+	private static class DummyClient extends AbstractClient {
+
+		public DummyClient() {
+			super();
+		}
+
+		public DummyClient(Locale locale) {
+			super(locale);
+		}
+
+		public String get(String address) {
+			return super.get(address);
+		}
+
+		public String post(String address, String query) {
+			return super.post(address, query);
+		}
+
+	}
 
 	public static List<Entry> findChildren() throws InterruptedException {
 		System.out.println("findChildren()");
