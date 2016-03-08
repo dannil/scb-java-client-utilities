@@ -1,0 +1,89 @@
+######################
+# Directories and files
+#
+# General folders common for 
+# several languages
+######################
+build/
+bin/
+bin_temp/
+gen/
+target/
+lib/cache/
+log/
+doc/
+local/
+
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+#.classpath
+.settings/
+.loadpath
+/src/main/resources/rebel.xml
+project.properties
+/project.properties
+ PDT-specific
+.buildpath
+proguard/
+
+######################
+# Android
+######################
+*.apk
+*.ap_
+*.dex
+R.java
+
+######################
+# Java
+######################
+*.class
+*.jar
+*.war
+*.ear
+.classpath
+
+######################
+# PHP
+######################
+vendor/
+cache/
+
+######################
+# Windows
+######################
+Thumbs.db
+Desktop.ini
+
+######################
+# OSX
+######################
+.DS_Store
+.svn
+._*
+.Spotlight-V100
+.Trashes
+
+######################
+# Other
+######################
+*.db
+project.properties
+/project.properties
+.classpath
+*.log
+.externalToolBuilders/
+*.launch
+.cproject
