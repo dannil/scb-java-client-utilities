@@ -65,11 +65,11 @@ public class Test {
 				e.setId(next.get("id").asText());
 				e.setText(next.get("text").asText());
 
-				nodes.add(e);
 				List<Entry> children = findChildren(currentAddress + next.get("id").asText() + "/");
 				if (children.size() != 0) {
 					e.addChildren(children);
 				}
+				nodes.add(e);
 			}
 		}
 		return nodes;
