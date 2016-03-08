@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +9,7 @@ public class Entry {
 	private List<Entry> children;
 
 	public Entry() {
-		this.children = new ArrayList<Entry>();
+
 	}
 
 	public String getId() {
@@ -38,11 +36,14 @@ public class Entry {
 		this.children = children;
 	}
 
-	public void addChild(Entry entry) {
-		this.children.add(entry);
-	}
+	// public void addChild(Entry entry) {
+	// this.children.add(entry);
+	// }
 
 	public void addChildren(Collection<Entry> entries) {
+		if (this.children == null) {
+			this.children = new ArrayList<Entry>();
+		}
 		this.children.addAll(entries);
 	}
 
