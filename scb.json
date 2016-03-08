@@ -1,0 +1,828 @@
+[
+  {
+    "id": "BE0701",
+    "text": "Demographic Analysis (Demography)",
+    "children": [
+      {
+        "id": "MedelAlderNY",
+        "text": "Mean age at birth of the first child by region and sex. Year 1970 - 2014"
+      },
+      {
+        "id": "FruktsamhetSumNy",
+        "text": "Total fertility rate by region and sex. Year 1970 - 2014"
+      }
+    ]
+  },
+  {
+    "id": "BE0001",
+    "text": "Name statistics",
+    "children": [
+      {
+        "id": "BE0001T04Ar",
+        "text": "Newborns, first names normally used with at least 10 newborns with the same name, by year. Year 1998 - 2015"
+      },
+      {
+        "id": "BE0001T04BAr",
+        "text": "Newborns, first names normally used with at least 2 newborns with the same name. Year 2004 - 2015"
+      },
+      {
+        "id": "BE0001T05AR",
+        "text": "Newborns, the 10 and 100 most common first names normally used, by year. Year 1998 - 2015"
+      },
+      {
+        "id": "BE0001T06AR",
+        "text": "First names normally used, the 10 and 100 most common among persons registered on 31 December of each year. Year 1999 - 2015"
+      },
+      {
+        "id": "BE0001T03Ar",
+        "text": "Last names, the 10 and 100 most common last names among persons registered on 31 December of each year. Year 1980 - 2015"
+      },
+      {
+        "id": "BE0001T07AR",
+        "text": "First names, the 10 and 100 most common among persons registered on 31 December of each year. Year 1980 - 2015"
+      },
+      {
+        "id": "BE0001T08AR",
+        "text": "First names normally used by average age among persons registered on 31 December of each year. Year 2005 - 2015"
+      },
+      {
+        "id": "BE0001F100",
+        "text": "First names, the 100 most common for women and men 31 December 2015. Year of birth 1916 - 2015"
+      },
+      {
+        "id": "BE0001T100",
+        "text": "First names normally used, the 100 most common  for women and men 31 December 2015. Year of birth 1916 - 2015"
+      },
+      {
+        "id": "BE0001ENamn10",
+        "text": "Last names with at least 10 bearers among persons registered on 31 December of each year. Year 1999 - 2015"
+      },
+      {
+        "id": "BE0001TNamn10",
+        "text": "First names normally used with at least 10 bearers among persons registered on 31 December of each year. Year 1999 - 2015"
+      },
+      {
+        "id": "BE0001FNamn10",
+        "text": "First names with at least 10 bearers among persons registered on 31 December of each year. Year 1999 - 2015"
+      }
+    ]
+  },
+  {
+    "id": "BE0401",
+    "text": "Population projections",
+    "children": [
+      {
+        "id": "BE0401A",
+        "text": "Latest projections",
+        "children": [
+          {
+            "id": "BefolkprognRev2015",
+            "text": "Population by age and sex. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj15",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt15",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2015- 2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel15",
+            "text": "Number of births by mothers country of birth and age. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgLivslangd2015",
+            "text": "Life expectancy by sex and age. Year 2015-2110 2015 - 2110"
+          }
+        ]
+      },
+      {
+        "id": "BE0401D",
+        "text": "Latest assumptions",
+        "children": [
+          {
+            "id": "BefProgDodstal15",
+            "text": "Death rate by sex and age. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot15",
+            "text": "Fertility assumption. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr15",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld15",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt15",
+            "text": "Emigration rate by country of birth, sex and age. Year 2015-2110 2015 - 2110"
+          }
+        ]
+      },
+      {
+        "id": "BE0401E",
+        "text": "Latest projections with alternative assumptions",
+        "children": [
+          {
+            "id": "PrognForandr2015Alt",
+            "text": "Number of births, deaths, migration, population and fertility under different alternatives. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "PrognLivsl2015Alt",
+            "text": "Life expectancy by sex and alternative assumption. Year 2015-2110 2015 - 2110"
+          },
+          {
+            "id": "BefPrognRev2015Alt",
+            "text": "Population size by age, sex, country of birth and alternative assumptions. Year 2015-2110 2015 - 2110"
+          }
+        ]
+      },
+      {
+        "id": "BE0401B",
+        "text": "Earlier projections",
+        "children": [
+          {
+            "id": "BefolkprognRev2014",
+            "text": "Population by age and sex. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj14",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgLivslangd2014",
+            "text": "Life expectancy by sex and age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt14",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2014- 2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel14",
+            "text": "Number of births by mothers country of birth and age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2013",
+            "text": "Population by age and sex. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj13",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgLivslangd2013",
+            "text": "Life expectancy by sex and age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt13",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2013- 2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel13",
+            "text": "Number of births by mothers country of birth and age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2012",
+            "text": "Population by age and sex. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj12",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgLivslangd2012",
+            "text": "Life expectancy by sex and age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt12",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2012- 2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel12",
+            "text": "Number of births by mothers country of birth and age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2010",
+            "text": "Population by age and sex. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj10",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgLivslangd2010",
+            "text": "Life expectancy by sex and age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt10",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel10",
+            "text": "Number of births by mothers country of birth and age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2009",
+            "text": "Population by age and sex. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj09",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefPrognosLivslang09",
+            "text": "Life expectancy by sex and age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt09",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel09",
+            "text": "Number of births by mothers country of birth and age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2008",
+            "text": "Population by age and sex. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgOsiktDetalj",
+            "text": "Population size, number of deaths, immigrants, emigrants and average population size by country of birth, sex and age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefPrognosOversikt",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefPrognosLivslangd",
+            "text": "Life expectancy by sex and age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgFoddaMedel",
+            "text": "Births and average population size (by year of birth) by country of birth and mothers age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefolkprognRev2007",
+            "text": "Population size by age and sex. Year 2007-2050 2007 - 2050"
+          },
+          {
+            "id": "PrognosLivslangd04",
+            "text": "Life expectancy by sex and age based on the mortality assumption. Year 2007-2050 2007 - 2050"
+          },
+          {
+            "id": "PrognosMigration04",
+            "text": "Migration assumption by country of birth. Year 2007-2050 2007 - 2050"
+          },
+          {
+            "id": "PrognosForandr04",
+            "text": "Number of births, deaths, immigrants, emigrants and population size. Year 2007-2050 2007 - 2050"
+          },
+          {
+            "id": "BefolkprognRev2006",
+            "text": "Population size by age and sex. Year 2006-2050 2006 - 2050"
+          },
+          {
+            "id": "BefolkprognRev4",
+            "text": "Population size by age and sex. Year 2005-2050 2004 - 2050"
+          },
+          {
+            "id": "BefolkprognRev3",
+            "text": "Population size by age and sex. Year 2004-2050 2003 - 2050"
+          },
+          {
+            "id": "BefolkprognRev2",
+            "text": "Population size by age and sex. Year 2003-2050 2002 - 2050"
+          },
+          {
+            "id": "Befolkprogn2002",
+            "text": "Population size by age and sex. Year 2002-2050 2001 - 2050"
+          },
+          {
+            "id": "BefolkprognRev1",
+            "text": "Population size by age and sex. Year  2001-2050 2000 - 2050"
+          },
+          {
+            "id": "Befolkprogn",
+            "text": "Population size by age and sex. Year 2000-2050 1999 - 2050"
+          }
+        ]
+      },
+      {
+        "id": "BE0401F",
+        "text": "Earlier assumptions",
+        "children": [
+          {
+            "id": "BefProgDodstal14",
+            "text": "Death rate by sex and age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot14",
+            "text": "Fertility assumption. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr14",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld14",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt14",
+            "text": "Emigration rate by country of birth, sex and age. Year 2014-2110 2014 - 2110"
+          },
+          {
+            "id": "BefProgDodstal13",
+            "text": "Death rate by sex and age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot13",
+            "text": "Fertility assumption. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr13",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld13",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt13",
+            "text": "Emigration rate by country of birth, sex and age. Year 2013-2110 2013 - 2110"
+          },
+          {
+            "id": "BefProgDodstal12",
+            "text": "Death rate by sex and age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot12",
+            "text": "Fertility assumption. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr12",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld12",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt12",
+            "text": "Emigration rate by country of birth, sex and age. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefProgDodstal10",
+            "text": "Death rate by sex and age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr10",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot10",
+            "text": "Fertility assumption. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld10",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt10",
+            "text": "Emigration rate by country of birth, sex and age. Year 2010-2110 2010 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot09",
+            "text": "Fertility assumption. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr09",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld09",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgUtflytt09",
+            "text": "Emigration rate by country of birth, sex and age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgDodstal09",
+            "text": "Death rate by sex and age. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "BefProgFruktTot",
+            "text": "Fertility assumption. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgFruktSveUtl",
+            "text": "Fertility assumption by mothers country of birth. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgFruktSvUAld",
+            "text": "Age specific fertility rate by mothers country of birth and mothers age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgFruktFodLGr",
+            "text": "Fertility assumption by mothers country of birth (grouped). Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefPrognosAndelPojk",
+            "text": "Assumption on share of boys among newborn children. Year 2008-2110 2008-2110 - 2008-2110"
+          },
+          {
+            "id": "BefProgUtflytt",
+            "text": "Emigration rate by country of birth, sex and age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "BefProgDodstal",
+            "text": "Death rate by sex and age. Year 2008-2110 2008 - 2110"
+          },
+          {
+            "id": "PrognosFruktsamhet04",
+            "text": "Fertility assumption. Year 2007-2050 2007 - 2050"
+          }
+        ]
+      },
+      {
+        "id": "BE0401C",
+        "text": "Earlier projections with alternative assumptions",
+        "children": [
+          {
+            "id": "BefPrognRev2009Alt",
+            "text": "Population size by age, sex, country of birth and alternative assumptions. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "PrognForandr2006Alt",
+            "text": "Number of births, deaths, migration, population and fertility under different alternatives. Year 2006-2050 2006 - 2050"
+          },
+          {
+            "id": "PrognForandr2012Alt",
+            "text": "Number of births, deaths, migration, population and fertility under different alternatives. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "PrognLivsl2009Alt",
+            "text": "Life expectancy by sex and alternative assumption. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "PrognForandr2009Alt",
+            "text": "Number of births, deaths, migration, population and fertility under different alternatives. Year 2009-2110 2009 - 2110"
+          },
+          {
+            "id": "PrognLivsl2006Alt",
+            "text": "Life expectancy by sex and alternative assumption. Year  2006 - 2050"
+          },
+          {
+            "id": "PrognLivsl2012Alt",
+            "text": "Life expectancy by sex and alternative assumption. Year 2012-2110 2012 - 2110"
+          },
+          {
+            "id": "BefPrognRev2006Alt",
+            "text": "Population size by age, sex, country of birth (born in Sweden or abroad) and alternative assumptions. Year 2006 - 2050"
+          },
+          {
+            "id": "BefPrognRev2012Alt",
+            "text": "Population size by age, sex, country of birth and alternative assumptions. Year 2012-2110 2012 - 2110"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BE0101",
+    "text": "Population statistics",
+    "children": [
+      {
+        "id": "BE0101A",
+        "text": "Number of inhabitants",
+        "children": [
+          {
+            "id": "BefolkningNy",
+            "text": "Population by region, marital status, age and sex.  Year 1968 - 2015"
+          },
+          {
+            "id": "BefolkningR1860",
+            "text": "Population by age and sex. Year 1860 - 2015"
+          },
+          {
+            "id": "FolkmangdNov",
+            "text": "Population 1 November by region, age and sex. Year 2002 - 2015"
+          },
+          {
+            "id": "FolkmangdSmaort",
+            "text": "Population by smaller localities (places with 50-199 inhabitants). Every fifth year 1995 - 2010"
+          },
+          {
+            "id": "FolkmangdTatort",
+            "text": "Population by localities. Every fifth year 1990 - 2010"
+          },
+          {
+            "id": "FolkmangdTatortH",
+            "text": "Population by localities with older/changed names. Every fifth year 1960 - 1980"
+          }
+        ]
+      },
+      {
+        "id": "BE0101S",
+        "text": "Household",
+        "children": [
+          {
+            "id": "HushallT05",
+            "text": "Number of households and persons by region, type of household and number of children. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT07",
+            "text": "Number of persons by type of household, household status, age and sex. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT06",
+            "text": "Number of persons by household status, background and sex. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT03",
+            "text": "Number and percentage of persons and households by region and household size. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT04kon",
+            "text": "Number of persons by region, age, type of household, number of children and sex. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT08",
+            "text": "Number of persons by region, age, household position and sex. Year 2011 - 2014"
+          },
+          {
+            "id": "HushallT09",
+            "text": "Number of persons and households and persons by households by region. Year 2011 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101B",
+        "text": "Average age",
+        "children": [
+          {
+            "id": "BefolkningMedelAlder",
+            "text": "Average age of  the population by region and sex. Year 1998 - 2014"
+          },
+          {
+            "id": "BefolkMedianAlder",
+            "text": "Average age and median age in sweden by sex. Year  1968 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101C",
+        "text": "Population density",
+        "children": [
+          {
+            "id": "BeftathetkvkmS",
+            "text": "Population density per sq. km by smaller localities. Every fifth year 1995 - 2010"
+          },
+          {
+            "id": "BeftathetkvkmT",
+            "text": "Population density per sq. km by localities. Every fifth year 1990 - 2010"
+          },
+          {
+            "id": "BefArealTathetKon",
+            "text": "Population density per sq. km, population and land area by region and sex. Year 1991 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101D",
+        "text": "Mean population",
+        "children": [
+          {
+            "id": "MedelfolkFodelsear",
+            "text": "Mean population (by year of birth) by region, age and sex. Year 2006 - 2015"
+          },
+          {
+            "id": "MedelfolkHandelse",
+            "text": "Mean population by region, marital status, age and sex. Year 2006 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101E",
+        "text": "Foreign-born persons",
+        "children": [
+          {
+            "id": "UtrikesFoddaTotNK",
+            "text": "Foreign born persons by region, age in ten year groups and sex. Year 2001 - 2015"
+          },
+          {
+            "id": "UtrikesFoddaR",
+            "text": "Foreign-born persons in Sweden by country of birth, age and sex. Year 2000 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101F",
+        "text": "Foreign citizens",
+        "children": [
+          {
+            "id": "UtlmedbTotNK",
+            "text": "Foreign citizens by region, age in ten year groups and sex. Year 1973 - 2014"
+          },
+          {
+            "id": "UtlmedbR",
+            "text": "Foreign citizens by country of citizenship, age and sex. Year 1973 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101G",
+        "text": "Summary of vital events",
+        "children": [
+          {
+            "id": "Befforandr",
+            "text": "Population changes number of persons by region and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "BefUtvKon1749",
+            "text": "Population and population changes in Sweden by sex. Year 1749 - 2015"
+          },
+          {
+            "id": "ManadFoddDod",
+            "text": "Births and deaths per month by sex. Year 1998 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101H",
+        "text": "Live births",
+        "children": [
+          {
+            "id": "FoddaK",
+            "text": "Live births by region, sex and age of mother.  Year 1968 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101I",
+        "text": "Deaths",
+        "children": [
+          {
+            "id": "Dodstal",
+            "text": "Mortality rate per 1,000 of the mean population by age and sex. Year 2000 - 2014"
+          },
+          {
+            "id": "DodFoddaAlderMorK1",
+            "text": "Stillborn by region, age of the mother and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "Medellivsl",
+            "text": "Life expectancy at birth by region and sex 1998-2002 - 2010-2014"
+          },
+          {
+            "id": "DodaFodelsearK",
+            "text": "Deaths by region, age (the year of birth) and sex. Year 1968 - 2015"
+          },
+          {
+            "id": "DodaHandelseK",
+            "text": "Deaths by region, age (during the year) and sex. Year 1968 - 2015"
+          },
+          {
+            "id": "MedellivslangdL",
+            "text": "Life expectancy by county and sex 1966-1970 - 2010-2014"
+          },
+          {
+            "id": "LivslangdEttariga",
+            "text": "Life table by sex and age. Year 1980 - 2014"
+          },
+          {
+            "id": "LivslangdFemarig",
+            "text": "Life table (5 years) by sex and age. Year 1998-2002 - 2010-2014"
+          },
+          {
+            "id": "Spadbarnsdodlighet",
+            "text": "Infant mortality by  sex. Year 1946 - 2014"
+          },
+          {
+            "id": "LevandeFodda",
+            "text": "Live births, stillbirths and infant mortality rates by sex.Year 1749 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101J",
+        "text": "Migration - internal and external",
+        "children": [
+          {
+            "id": "Flyttningar",
+            "text": "Migration by region, age and sex. Year 1968-1996 1968 - 1996"
+          },
+          {
+            "id": "Flyttningar97",
+            "text": "Migration by region, age and sex. Year 1997- 1997 - 2015"
+          },
+          {
+            "id": "ImmiEmiFod",
+            "text": "Immigrations and emigrations by country of birth and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "ImmiEmiMedb",
+            "text": "Immigrations and emigrations by country of citizenship and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "ImmiEmiFlytt",
+            "text": "Immigrations and emigrations by country of emi-/immigration and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "FlyttningarInrk",
+            "text": "Domestic migration by type, age and sex. Year 2000 - 2015"
+          }
+        ]
+      },
+      {
+        "id": "BE0101L",
+        "text": "Married, divorced and widowed",
+        "children": [
+          {
+            "id": "AktenskapVaraktighet",
+            "text": "The marriages average duration in years at divorce respectively death, by region. Year 1998 - 2014"
+          },
+          {
+            "id": "CivilstandAndring",
+            "text": "Newly married, divorced and widowed by region, marital status, age and sex. Year 2000 - 2015"
+          },
+          {
+            "id": "GiftMedelalder",
+            "text": "Average age at marriage by sex. Year 1871 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101N",
+        "text": "Changes of citizenship",
+        "children": [
+          {
+            "id": "MedborgarByteLandR",
+            "text": "Number of persons in Sweden who have acquired Swedish citizenship by country of citizenship and sex. Year 2000 - 2014"
+          },
+          {
+            "id": "MedborgarByteTotK",
+            "text": "Number of persons who have acquired Swedish citizenship by region, country of citizenship and sex. Year 2000 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101O",
+        "text": "Registered partnership",
+        "children": [
+          {
+            "id": "Partnerskap",
+            "text": "Partnership by  region, marital status and sex, Year 1998 - 2014"
+          },
+          {
+            "id": "PartnerskapAndring",
+            "text": "Changing in partnership by region, marital status and sex, Year 1995 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101P",
+        "text": "Asylum-seekers",
+        "children": [
+          {
+            "id": "Ensamkommande",
+            "text": "Unaccompanied refugee minors by age, citizenship, sex. Year 2002 - 2014"
+          },
+          {
+            "id": "Asylsokande",
+            "text": "Asylum-seekers in Sweden by country of citizenship and sex. Year 2002 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101Q",
+        "text": "Foreign/Swedish background",
+        "children": [
+          {
+            "id": "UtlSvBakgTotNK",
+            "text": "Number of persons with foreign or Swedish background (rough division) by region, age in ten year groups and sex. Year 2002 - 2014"
+          },
+          {
+            "id": "UtlSvBakgTot",
+            "text": "Number of persons with foreign or Swedish background (detailed division) by region, age in ten year groups and sex. Year 2002 - 2014"
+          }
+        ]
+      },
+      {
+        "id": "BE0101K",
+        "text": "Adoptees",
+        "children": [
+          {
+            "id": "Adopterade",
+            "text": "Adopted persons by sex, region of birth, number of adoptive parents and year of birth. Year 2000 - 2014"
+          }
+        ]
+      }
+    ]
+  }
+]

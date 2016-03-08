@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.client.AbstractClient;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
+import com.google.common.base.Stopwatch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -76,8 +78,14 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		List<Entry> children = findChildren("BE/");
+		Stopwatch stopwatch = Stopwatch.createStarted();
+		List<Entry> children = findChildren("");
+		stopwatch.stop();
+
 		System.out.println("Final list: " + children);
+
+		long minutes = stopwatch.elapsed(TimeUnit.MINUTES);
+		System.out.println("Elapsed time (minutes) : " + minutes);
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
