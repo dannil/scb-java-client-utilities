@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+import org.joda.time.DateTime;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.client.AbstractClient;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
@@ -17,7 +19,7 @@ import com.google.gson.GsonBuilder;
 
 public class Test {
 
-	private static Locale locale = new Locale("en");
+	private static Locale locale = new Locale("sv");
 	private static DummyClient client = new DummyClient(locale);
 
 	private static class DummyClient extends AbstractClient {
@@ -54,6 +56,10 @@ public class Test {
 		System.out.println("findChildren(String): calling findChildren(String) with address " + currentAddress);
 
 		String response = client.get(currentAddress);
+		if ("UNHANDLED".equals(response)) {
+			return new ArrayList<Entry>();
+		}
+
 		JsonNode fetched = JsonUtility.getNode(response);
 
 		List<Entry> nodes = new ArrayList<>();
@@ -78,8 +84,10 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
+		String table = "LE/LE0101/LE0101H/";
+
 		Stopwatch stopwatch = Stopwatch.createStarted();
-		List<Entry> children = findChildren("");
+		List<Entry> children = findChildren(table);
 		stopwatch.stop();
 
 		System.out.println("Final list: " + children);
@@ -89,7 +97,18 @@ public class Test {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-		File file = new File("scb.json");
+		StringBuilder builder = new StringBuilder(table.length() * 2);
+		builder.append("scb");
+		builder.append("_");
+		builder.append(table.replace('/', '-').substring(0, table.length() - 1));
+		builder.append("_");
+
+		DateTime date = DateTime.now();
+		builder.append(date.toLocalDateTime().toString().replace(':', '-'));
+
+		builder.append(".json");
+
+		File file = new File(builder.toString());
 		try (FileWriter fw = new FileWriter(file.getAbsoluteFile())) {
 			try (BufferedWriter bw = new BufferedWriter(fw)) {
 				String content = gson.toJson(children, List.class);
