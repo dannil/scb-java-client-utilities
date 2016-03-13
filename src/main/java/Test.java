@@ -61,36 +61,24 @@ public class Test {
 
 		JsonNode fetched = JsonUtility.getNode(response);
 
-		List<Entry> entries = new ArrayList<>();
-		Iterator<JsonNode> it = fetched.iterator();
-		while (it.hasNext()) {
-			JsonNode next = it.next();
+		List<Entry> entries = new ArrayList<Entry>();
+		Iterator<JsonNode> iterator = fetched.iterator();
+		while (iterator.hasNext()) {
+			JsonNode next = iterator.next();
+			if (next.has("id")) {
+				Entry entry = new Entry();
+				entry.setId(next.get("id").asText());
+				entry.setText(next.get("text").asText());
 
-			Entry entry = new Entry();
-			entry.setId(next.get("id").asText());
-			entry.setText(next.get("text").asText());
-
-			if (entry.getId().length() > 0) {
 				Thread.sleep(1000);
 
 				List<Entry> children = findChildren(currentAddress + entry.getId() + "/");
-				if (children.size() != 0) {
+				if (children.size() > 0) {
 					entry.addChildren(children);
 				}
+				entries.add(entry);
 			}
-
-			entries.add(entry);
 		}
-		// if (next.has("id")) {
-		// Thread.sleep(1000);
-		//
-		// List<Entry> children = findChildren(currentAddress + next.get("id").asText() + "/");
-		// if (children.size() != 0) {
-		// child.addChildren(children);
-		// }
-		// nodes.add(child);
-		// }
-
 		return entries;
 	}
 
@@ -116,6 +104,8 @@ public class Test {
 			builder.append("_");
 		}
 
+		builder.append(before.toLocalDateTime().toString().replace(':', '-'));
+		builder.append("_");
 		builder.append(after.toLocalDateTime().toString().replace(':', '-'));
 		builder.append(".json");
 
