@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.client.AbstractClient;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
-import com.google.common.base.Stopwatch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -62,55 +61,69 @@ public class Test {
 
 		JsonNode fetched = JsonUtility.getNode(response);
 
-		List<Entry> nodes = new ArrayList<>();
+		List<Entry> entries = new ArrayList<>();
 		Iterator<JsonNode> it = fetched.iterator();
 		while (it.hasNext()) {
 			JsonNode next = it.next();
-			if (next.has("id")) {
+
+			Entry entry = new Entry();
+			entry.setId(next.get("id").asText());
+			entry.setText(next.get("text").asText());
+
+			if (entry.getId().length() > 0) {
 				Thread.sleep(1000);
 
-				Entry e = new Entry();
-				e.setId(next.get("id").asText());
-				e.setText(next.get("text").asText());
-
-				List<Entry> children = findChildren(currentAddress + next.get("id").asText() + "/");
+				List<Entry> children = findChildren(currentAddress + entry.getId() + "/");
 				if (children.size() != 0) {
-					e.addChildren(children);
+					entry.addChildren(children);
 				}
-				nodes.add(e);
 			}
+
+			entries.add(entry);
 		}
-		return nodes;
+		// if (next.has("id")) {
+		// Thread.sleep(1000);
+		//
+		// List<Entry> children = findChildren(currentAddress + next.get("id").asText() + "/");
+		// if (children.size() != 0) {
+		// child.addChildren(children);
+		// }
+		// nodes.add(child);
+		// }
+
+		return entries;
 	}
 
 	public static void main(String[] args) throws InterruptedException, IOException {
-		String table = "LE/LE0101/LE0101H/";
+		String table = "";
 
-		Stopwatch stopwatch = Stopwatch.createStarted();
+		DateTime before = DateTime.now();
 		List<Entry> children = findChildren(table);
-		stopwatch.stop();
+		DateTime after = DateTime.now();
 
 		System.out.println("Final list: " + children);
 
-		long minutes = stopwatch.elapsed(TimeUnit.MINUTES);
+		Duration duration = new Duration(before, after);
+		long minutes = duration.getStandardMinutes();
 		System.out.println("Elapsed time (minutes) : " + minutes);
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 		StringBuilder builder = new StringBuilder(table.length() * 2);
 		builder.append("scb");
 		builder.append("_");
-		builder.append(table.replace('/', '-').substring(0, table.length() - 1));
-		builder.append("_");
 
-		DateTime date = DateTime.now();
-		builder.append(date.toLocalDateTime().toString().replace(':', '-'));
+		if (table.length() > 0) {
+			builder.append(table.replace('/', '-').substring(0, table.length() - 1));
+			builder.append("_");
+		}
 
+		builder.append(after.toLocalDateTime().toString().replace(':', '-'));
 		builder.append(".json");
 
 		File file = new File(builder.toString());
 		try (FileWriter fw = new FileWriter(file.getAbsoluteFile())) {
 			try (BufferedWriter bw = new BufferedWriter(fw)) {
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
 				String content = gson.toJson(children, List.class);
 				bw.write(content);
 			}
