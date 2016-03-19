@@ -1,3 +1,5 @@
+package com.github.dannil.scbjavaclientutil.json;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,7 +18,7 @@ import com.github.dannil.scbjavaclient.utility.JsonUtility;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class Test {
+public class APITree {
 
 	private static Locale locale = new Locale("sv");
 	private static DummyClient client = new DummyClient(locale);
@@ -31,12 +33,12 @@ public class Test {
 			super(locale);
 		}
 
-		public String get(String address) {
-			return super.get(address);
+		public String get(String url) {
+			return super.get(url);
 		}
 
-		public String post(String address, String query) {
-			return super.post(address, query);
+		public String post(String url, String query) {
+			return super.post(url, query);
 		}
 
 	}

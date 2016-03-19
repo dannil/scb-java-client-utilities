@@ -1,3 +1,4 @@
+package com.github.dannil.scbjavaclientutil.json;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
