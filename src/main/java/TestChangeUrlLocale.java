@@ -4,7 +4,7 @@ public class TestChangeUrlLocale {
 
 	public static void main(String[] args) {
 		String url = URLUtility
-				.changeUrlLocale("http://api.scb.se/OV0104/v1/doris/en/ssd/BE/BE0101/BE0101A/BefolkningNy");
+				.changeLanguageForUrl("http://api.scb.se/OV0104/v1/doris/en/ssd/BE/BE0101/BE0101A/BefolkningNy");
 
 		String expected = "http://api.scb.se/OV0104/v1/doris/sv/ssd/BE/BE0101/BE0101A/BefolkningNy";
 
