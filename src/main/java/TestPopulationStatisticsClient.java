@@ -1,9 +1,12 @@
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.github.dannil.scbjavaclient.client.SCBClient;
 import com.github.dannil.scbjavaclient.model.population.statistic.Population;
 
 public class TestPopulationStatisticsClient {
+
+	private static final Logger LOGGER = Logger.getLogger(TestPopulationStatisticsClient.class.getName());
 
 	public static void main(String[] args) {
 		SCBClient c = new SCBClient();
@@ -17,7 +20,7 @@ public class TestPopulationStatisticsClient {
 		// System.out.println(converted);
 
 		List<Population> populations = c.population().statistics().getPopulation();
-		System.out.println(populations);
+		LOGGER.info(populations.toString());
 	}
 
 }
