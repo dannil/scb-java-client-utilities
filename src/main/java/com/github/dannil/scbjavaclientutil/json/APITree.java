@@ -14,6 +14,7 @@ import org.joda.time.Duration;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.client.AbstractClient;
+import com.github.dannil.scbjavaclient.exception.SCBClientException;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,10 +57,17 @@ public class APITree {
 	public static List<Entry> findChildren(String currentAddress) throws InterruptedException {
 		System.out.println("findChildren(String): calling findChildren(String) with address " + currentAddress);
 
-		String response = client.get(currentAddress);
-		if ("UNHANDLED".equals(response)) {
+		String response = null;
+		try {
+			response = client.get(currentAddress);
+		} catch (SCBClientException e) {
+			System.err.println(e.getMessage());
 			return new ArrayList<Entry>();
 		}
+		// String response = client.get(currentAddress);
+		// if ("UNHANDLED".equals(response)) {
+		// return new ArrayList<Entry>();
+		// }
 
 		JsonNode fetched = JsonUtility.getNode(response);
 
