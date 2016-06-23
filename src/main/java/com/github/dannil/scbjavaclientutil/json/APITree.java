@@ -44,16 +44,6 @@ public class APITree {
 
 	}
 
-	// public static List<Entry> findChildren() throws InterruptedException {
-	// System.out.println("findChildren()");
-	//
-	// List<Entry> lst = findChildren("BE/");
-	// // List<Entry> lst = findChildren("");
-	// lst.removeAll(Collections.singleton(null));
-	//
-	// return lst;
-	// }
-
 	public static List<Entry> findChildren(String currentAddress) throws InterruptedException {
 		System.out.println("findChildren(String): calling findChildren(String) with address " + currentAddress);
 
@@ -64,10 +54,6 @@ public class APITree {
 			System.err.println(e.getMessage());
 			return new ArrayList<Entry>();
 		}
-		// String response = client.get(currentAddress);
-		// if ("UNHANDLED".equals(response)) {
-		// return new ArrayList<Entry>();
-		// }
 
 		JsonNode fetched = JsonUtility.getNode(response);
 
@@ -129,4 +115,5 @@ public class APITree {
 			}
 		}
 	}
+
 }
