@@ -55,7 +55,7 @@ public class APITree {
 			return new ArrayList<Entry>();
 		}
 
-		JsonNode fetched = JsonUtility.getNode(response);
+		JsonNode fetched = JsonUtility.toNode(response);
 
 		List<Entry> entries = new ArrayList<Entry>();
 		Iterator<JsonNode> iterator = fetched.iterator();
