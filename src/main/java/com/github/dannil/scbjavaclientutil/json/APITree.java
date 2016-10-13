@@ -34,10 +34,12 @@ public class APITree {
 			super(locale);
 		}
 
+		@Override
 		public String get(String url) {
 			return super.get(url);
 		}
 
+		@Override
 		public String post(String url, String query) {
 			return super.post(url, query);
 		}
