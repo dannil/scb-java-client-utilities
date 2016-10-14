@@ -93,7 +93,7 @@ public class APITree {
 		long minutes = duration.getStandardMinutes();
 		System.out.println("Elapsed time (minutes) : " + minutes);
 
-		StringBuilder builder = new StringBuilder(table.length() * 2);
+		StringBuilder builder = new StringBuilder(64);
 		builder.append("scb");
 		builder.append("_");
 
