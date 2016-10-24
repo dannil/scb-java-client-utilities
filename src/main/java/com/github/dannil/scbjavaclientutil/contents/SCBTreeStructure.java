@@ -1,8 +1,6 @@
 package com.github.dannil.scbjavaclientutil.contents;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,9 +14,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
 import com.github.dannil.scbjavaclient.utility.JsonUtility;
 import com.github.dannil.scbjavaclientutil.client.IgnorePrependingTableClient;
+import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class SCBTreeStructure {
 
@@ -29,7 +26,7 @@ public class SCBTreeStructure {
 
 		String response = null;
 		try {
-			response = client.get(currentAddress);
+			response = client.get(currentAddress + "/");
 		} catch (SCBClientException e) {
 			System.err.println(e.getMessage());
 			return new ArrayList<Entry>();
@@ -48,7 +45,7 @@ public class SCBTreeStructure {
 
 				Thread.sleep(1000);
 
-				List<Entry> children = getTableOfContents(currentAddress + entry.getId() + "/");
+				List<Entry> children = getTableOfContents(currentAddress + "/" + entry.getId());
 				if (children.size() > 0) {
 					entry.addChildren(children);
 				}
@@ -59,8 +56,8 @@ public class SCBTreeStructure {
 		return entries;
 	}
 
-	public void generateFile(String table, DateTime before, DateTime after, List<Entry> children) throws IOException {
-		System.out.println("Final list: " + children);
+	public void generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
+		System.out.println("Final list: " + entries);
 
 		Duration duration = new Duration(before, after);
 		long minutes = duration.getStandardMinutes();
@@ -81,14 +78,7 @@ public class SCBTreeStructure {
 		builder.append(".json");
 
 		File file = new File(builder.toString());
-		try (FileWriter fw = new FileWriter(file.getAbsoluteFile())) {
-			try (BufferedWriter bw = new BufferedWriter(fw)) {
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-				String content = gson.toJson(children, List.class);
-				bw.write(content);
-			}
-		}
+		FileUtility.writeToSystem(file, entries);
 	}
 
 }
