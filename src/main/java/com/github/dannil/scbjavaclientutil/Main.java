@@ -13,7 +13,7 @@ public class Main {
 		String table = "TK";
 
 		File f = new File("values");
-		File statisticsDestination = new File("statistics");
+		File statisticsDestination = new File("local/statistics");
 
 		SCBTreeStructure c = new SCBTreeStructure();
 		SCBTableValues v = new SCBTableValues(f);
@@ -36,7 +36,7 @@ public class Main {
 		//
 		// v.getValues("", json);
 
-		File f3 = new File("values_2016-10-24T21-14-03.307");
+		File f3 = new File("local/values_2016-10-24T21-14-03.307");
 		s.getStatistics(f3);
 
 		System.out.println("Done!");
