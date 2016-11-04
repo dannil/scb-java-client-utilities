@@ -12,7 +12,8 @@ import org.joda.time.Duration;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
-import com.github.dannil.scbjavaclient.utility.JsonUtility;
+import com.github.dannil.scbjavaclient.format.json.JsonConverter;
+import com.github.dannil.scbjavaclient.format.json.JsonCustomResponseFormat;
 import com.github.dannil.scbjavaclientutil.client.IgnorePrependingTableClient;
 import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
@@ -32,7 +33,7 @@ public class SCBTreeStructure {
 			return new ArrayList<Entry>();
 		}
 
-		JsonNode fetched = JsonUtility.toNode(response);
+		JsonNode fetched = new JsonConverter().toNode(response);
 
 		List<Entry> entries = new ArrayList<Entry>();
 		Iterator<JsonNode> iterator = fetched.iterator();
