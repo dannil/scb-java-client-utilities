@@ -1,5 +1,7 @@
 package com.github.dannil.scbjavaclientutil;
 
+import java.util.Locale;
+
 import com.github.dannil.scbjavaclient.client.SCBClient;
 
 public class Test {
@@ -7,7 +9,8 @@ public class Test {
 	public static void main(String[] args) {
 		// AbstractRequester req = RequesterFactory.getRequester(RequestMethod.GET);
 		//
-		// String json = req.getBodyAsStringFromTable("BE/BE0101/BE0101B/BefolkningMedelAlder");
+		// String json =
+		// req.getBodyAsStringFromTable("BE/BE0101/BE0101B/BefolkningMedelAlder");
 		// Map<String, List<String>> inputs = JsonUtility.getInputs(json);
 		//
 		// StringBuilder builder = new StringBuilder();
@@ -26,6 +29,7 @@ public class Test {
 		// System.out.println(builder.toString());
 
 		SCBClient c = new SCBClient();
+		System.out.println(SCBClient.isSupportedLocale(new Locale("fr", "FR")));
 
 		// Map<String, Collection<?>> inputs = new HashMap<String, Collection<?>>();
 		// inputs.put("ContentsCode", Arrays.asList("BE0101N1", "BE0101N2"));
