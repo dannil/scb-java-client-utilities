@@ -26,8 +26,8 @@ public class SCBTreeStructure {
     }
 
     public List<Entry> getTableOfContents(String currentAddress) throws InterruptedException {
-        System.out.println("getTableOfContents(String): calling getTableOfContents(String) with address "
-                + currentAddress);
+        System.out.println("getTableOfContents(String): calling getTableOfContents(" + currentAddress + ") ["
+                + this.client.getLocale().getLanguage() + "]");
 
         String response = null;
         try {

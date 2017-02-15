@@ -15,20 +15,25 @@ import org.joda.time.DateTime;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        String table = "";
+        String table = "BO";
+
+        SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
+        DateTime before = DateTime.now();
+        List<Entry> children = c.getTableOfContents(table);
+        DateTime after = DateTime.now();
+        c.generateFile(table, before, after, children);
+
+        c = new SCBTreeStructure(new Locale("en", "US"));
+        before = DateTime.now();
+        children = c.getTableOfContents(table);
+        after = DateTime.now();
+        c.generateFile(table, before, after, children);
 
         File f = new File("values");
         File statisticsDestination = new File("local/statistics");
 
-        SCBTreeStructure c = new SCBTreeStructure(new Locale("en", "US"));
         SCBTableValues v = new SCBTableValues(f);
         SCBTableStatistics s = new SCBTableStatistics(statisticsDestination);
-
-        DateTime before = DateTime.now();
-        List<Entry> children = c.getTableOfContents(table);
-        DateTime after = DateTime.now();
-
-        c.generateFile(table, before, after, children);
 
         // Entry rootChild = new Entry();
         // rootChild.setId(table);
