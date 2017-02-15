@@ -19,10 +19,10 @@ import org.joda.time.Duration;
 
 public class SCBTreeStructure {
 
-    IgnorePrependingTableClient client;
+    private IgnorePrependingTableClient client;
 
-    public SCBTreeStructure() {
-        this.client = new IgnorePrependingTableClient(new Locale("sv", "SE"));
+    public SCBTreeStructure(Locale locale) {
+        this.client = new IgnorePrependingTableClient(locale);
     }
 
     public List<Entry> getTableOfContents(String currentAddress) throws InterruptedException {
@@ -70,7 +70,7 @@ public class SCBTreeStructure {
         builder.append("_");
 
         if (table.length() > 0) {
-            builder.append(table.replace('/', '-').substring(0, table.length() - 1));
+            builder.append(table.replace('/', '-'));
             builder.append("_");
         }
 
