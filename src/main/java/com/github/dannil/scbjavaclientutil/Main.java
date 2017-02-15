@@ -2,43 +2,48 @@ package com.github.dannil.scbjavaclientutil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import com.github.dannil.scbjavaclientutil.contents.SCBTableStatistics;
 import com.github.dannil.scbjavaclientutil.contents.SCBTableValues;
 import com.github.dannil.scbjavaclientutil.contents.SCBTreeStructure;
+import com.github.dannil.scbjavaclientutil.model.Entry;
+
+import org.joda.time.DateTime;
 
 public class Main {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
-		String table = "TK";
+    public static void main(String[] args) throws InterruptedException, IOException {
+        String table = "";
 
-		File f = new File("values");
-		File statisticsDestination = new File("local/statistics");
+        File f = new File("values");
+        File statisticsDestination = new File("local/statistics");
 
-		SCBTreeStructure c = new SCBTreeStructure();
-		SCBTableValues v = new SCBTableValues(f);
-		SCBTableStatistics s = new SCBTableStatistics(statisticsDestination);
+        SCBTreeStructure c = new SCBTreeStructure();
+        SCBTableValues v = new SCBTableValues(f);
+        SCBTableStatistics s = new SCBTableStatistics(statisticsDestination);
 
-		// DateTime before = DateTime.now();
-		// List<Entry> children = c.getTableOfContents(table);
-		// DateTime after = DateTime.now();
-		//
-		// c.generateFile(table, before, after, children);
+        DateTime before = DateTime.now();
+        List<Entry> children = c.getTableOfContents(table);
+        DateTime after = DateTime.now();
 
-		// Entry rootChild = new Entry();
-		// rootChild.setId(table);
-		// rootChild.addChildren(children);
+        c.generateFile(table, before, after, children);
 
-		// v.getValues("", rootChild);
+        // Entry rootChild = new Entry();
+        // rootChild.setId(table);
+        // rootChild.addChildren(children);
 
-		// File jsonLocation = new File("scb_2016-10-24T17-49-41.124_2016-10-24T19-25-10.077.json");
-		// String json = new String(Files.readAllBytes(jsonLocation.toPath()));
-		//
-		// v.getValues("", json);
+        // v.getValues("", rootChild);
 
-		File f3 = new File("local/values_2016-10-24T21-14-03.307");
-		s.getStatistics(f3);
+        // File jsonLocation = new
+        // File("scb_2016-10-24T17-49-41.124_2016-10-24T19-25-10.077.json");
+        // String json = new String(Files.readAllBytes(jsonLocation.toPath()));
+        //
+        // v.getValues("", json);
 
-		System.out.println("Done!");
-	}
+        // File f3 = new File("local/values_2016-10-24T21-14-03.307");
+        // s.getStatistics(f3);
+
+        System.out.println("Done!");
+    }
 }
