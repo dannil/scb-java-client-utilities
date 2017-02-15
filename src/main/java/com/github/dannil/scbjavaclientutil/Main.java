@@ -3,6 +3,7 @@ package com.github.dannil.scbjavaclientutil;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import com.github.dannil.scbjavaclientutil.contents.SCBTableStatistics;
 import com.github.dannil.scbjavaclientutil.contents.SCBTableValues;
@@ -19,7 +20,7 @@ public class Main {
         File f = new File("values");
         File statisticsDestination = new File("local/statistics");
 
-        SCBTreeStructure c = new SCBTreeStructure();
+        SCBTreeStructure c = new SCBTreeStructure(new Locale("en", "US"));
         SCBTableValues v = new SCBTableValues(f);
         SCBTableStatistics s = new SCBTableStatistics(statisticsDestination);
 
