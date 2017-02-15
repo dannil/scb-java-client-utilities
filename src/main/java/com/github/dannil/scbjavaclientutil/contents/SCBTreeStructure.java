@@ -19,15 +19,19 @@ import org.joda.time.Duration;
 
 public class SCBTreeStructure {
 
+    IgnorePrependingTableClient client;
+
+    public SCBTreeStructure() {
+        this.client = new IgnorePrependingTableClient(new Locale("sv", "SE"));
+    }
+
     public List<Entry> getTableOfContents(String currentAddress) throws InterruptedException {
         System.out.println("getTableOfContents(String): calling getTableOfContents(String) with address "
                 + currentAddress);
 
-        IgnorePrependingTableClient client = new IgnorePrependingTableClient(new Locale("sv", "SE"));
-
         String response = null;
         try {
-            response = client.get(currentAddress + "/");
+            response = this.client.get(currentAddress + "/");
         } catch (SCBClientException e) {
             System.err.println(e.getMessage());
             return new ArrayList<Entry>();
@@ -53,14 +57,13 @@ public class SCBTreeStructure {
                 entries.add(entry);
             }
         }
-
         return entries;
     }
 
     public void generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
         Duration duration = new Duration(before, after);
         long minutes = duration.getStandardMinutes();
-        System.out.println("Elapsed time (minutes) : " + minutes);
+        System.out.println("Elapsed time (minutes): " + minutes);
 
         StringBuilder builder = new StringBuilder(64);
         builder.append("scb");
@@ -74,6 +77,8 @@ public class SCBTreeStructure {
         builder.append(before.toLocalDateTime().toString().replace(':', '-'));
         builder.append("_");
         builder.append(after.toLocalDateTime().toString().replace(':', '-'));
+        builder.append("_");
+        builder.append(this.client.getLocale().getLanguage());
         builder.append(".json");
 
         System.out.println("Writing " + builder.toString());
