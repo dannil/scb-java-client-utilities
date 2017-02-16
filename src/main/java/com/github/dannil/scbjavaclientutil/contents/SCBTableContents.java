@@ -7,11 +7,11 @@ import com.github.dannil.scbjavaclient.client.SCBClient;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
 import com.github.dannil.scbjavaclientutil.files.FileUtility;
 
-public class SCBTableStatistics {
+public class SCBTableContents {
 
 	private File baseDir;
 
-	public SCBTableStatistics(File f) {
+	public SCBTableContents(File f) {
 		this.baseDir = f;
 	}
 

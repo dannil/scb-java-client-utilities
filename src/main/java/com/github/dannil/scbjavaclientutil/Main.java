@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import com.github.dannil.scbjavaclientutil.contents.SCBTableStatistics;
+import com.github.dannil.scbjavaclientutil.contents.SCBTableContents;
 import com.github.dannil.scbjavaclientutil.contents.SCBTableValues;
 import com.github.dannil.scbjavaclientutil.contents.SCBTreeStructure;
 import com.github.dannil.scbjavaclientutil.model.Entry;
@@ -30,10 +30,10 @@ public class Main {
         c.generateFile(table, before, after, children);
 
         File f = new File("values");
-        File statisticsDestination = new File("local/statistics");
+        File contentsDestination = new File("local/contents");
 
         SCBTableValues v = new SCBTableValues(f);
-        SCBTableStatistics s = new SCBTableStatistics(statisticsDestination);
+        SCBTableContents s = new SCBTableContents(contentsDestination);
 
         // Entry rootChild = new Entry();
         // rootChild.setId(table);
