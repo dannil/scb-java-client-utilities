@@ -2,6 +2,7 @@ package com.github.dannil.scbjavaclientutil.contents;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,8 +26,10 @@ public class SCBTableInputs {
         this.baseDir = baseDir;
     }
 
-    public void getInputs(String table, String json) throws InterruptedException, IOException {
+    public void getInputs(String table, File f) throws InterruptedException, IOException {
         // convert
+
+        String json = new String(Files.readAllBytes(f.toPath()));
 
         Gson gson = new GsonBuilder().create();
 

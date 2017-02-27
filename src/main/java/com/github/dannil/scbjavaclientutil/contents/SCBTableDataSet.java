@@ -7,15 +7,15 @@ import com.github.dannil.scbjavaclient.client.SCBClient;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
 import com.github.dannil.scbjavaclientutil.files.FileUtility;
 
-public class SCBTableContents {
+public class SCBTableDataSet {
 
 	private File baseDir;
 
-	public SCBTableContents(File f) {
+	public SCBTableDataSet(File f) {
 		this.baseDir = f;
 	}
 
-	public void getStatistics(File f3) throws IOException, InterruptedException {
+	public void getData(File f3) throws IOException, InterruptedException {
 		File[] files = f3.listFiles();
 		String formatted = f3.getName().substring(f3.getName().indexOf('_'), f3.getName().length());
 
