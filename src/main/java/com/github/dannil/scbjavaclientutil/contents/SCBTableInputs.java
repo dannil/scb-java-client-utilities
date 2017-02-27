@@ -15,17 +15,17 @@ import com.google.gson.reflect.TypeToken;
 
 import org.joda.time.DateTime;
 
-public class SCBTableValues {
+public class SCBTableInputs {
 
     private File baseDir;
 
     private File baseDirWithDate;
 
-    public SCBTableValues(File baseDir) {
+    public SCBTableInputs(File baseDir) {
         this.baseDir = baseDir;
     }
 
-    public void getValues(String table, String json) throws InterruptedException, IOException {
+    public void getInputs(String table, String json) throws InterruptedException, IOException {
         // convert
 
         Gson gson = new GsonBuilder().create();
@@ -37,10 +37,10 @@ public class SCBTableValues {
         rootChild.setId(table);
         rootChild.addChildren(entries);
 
-        getValues("", rootChild);
+        getInputs("", rootChild);
     }
 
-    public void getValues(String table, Entry child) throws InterruptedException, IOException {
+    public void getInputs(String table, Entry child) throws InterruptedException, IOException {
         if (this.baseDirWithDate == null) {
             DateTime now = DateTime.now();
             String formattedNow = now.toLocalDateTime().toString().replace(':', '-');
@@ -59,11 +59,12 @@ public class SCBTableValues {
         String response = "";
         try {
             IgnorePrependingTableClient c = new IgnorePrependingTableClient(new Locale("sv", "SE"));
+            //
+            // System.out.println("getInputs(String, Entry): calling getInputs(" +
+            // actualTable + ") ["
+            // + c.getLocale().getLanguage() + "]");
 
-            System.out.println("getValues(String, Entry): calling getValues(" + actualTable + ") ["
-                    + c.getLocale().getLanguage() + "]");
-
-            response = c.getRequest(actualTable);
+            response = c.getRequest(c.getUrl() + actualTable);
             if (response.contains("variables")) {
                 String formattedParent = this.baseDirWithDate.toString() + "/" + actualTable.replace('/', '-');
 
@@ -83,7 +84,7 @@ public class SCBTableValues {
 
         if (child.getChildren() != null) {
             for (Entry child2 : child.getChildren()) {
-                getValues(actualTable, child2);
+                getInputs(actualTable, child2);
             }
         }
 

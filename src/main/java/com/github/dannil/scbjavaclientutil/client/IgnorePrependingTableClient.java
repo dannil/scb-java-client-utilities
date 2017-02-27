@@ -26,8 +26,7 @@ public class IgnorePrependingTableClient extends AbstractClient {
 
     @Override
     public String getUrl() {
-        // TODO Auto-generated method stub
-        return null;
+        return getRootUrl();
     }
 
 }
