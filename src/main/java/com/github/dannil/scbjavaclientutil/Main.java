@@ -2,6 +2,8 @@ package com.github.dannil.scbjavaclientutil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
@@ -15,19 +17,46 @@ import org.joda.time.DateTime;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        String table = "BO";
+        Collection<String> rootTables = new ArrayList<>();
+        rootTables.add("");
+        rootTables.add("AM");
+        rootTables.add("BO");
+        rootTables.add("FM");
+        rootTables.add("HE");
+        rootTables.add("JO");
+        rootTables.add("LE");
+        rootTables.add("MI");
+        rootTables.add("NV");
+        rootTables.add("PR");
+        rootTables.add("SO");
+        rootTables.add("UF");
+        rootTables.add("AA");
+        rootTables.add("BE");
+        rootTables.add("EN");
+        rootTables.add("HA");
+        rootTables.add("HS");
+        rootTables.add("KU");
+        rootTables.add("ME");
+        rootTables.add("NR");
+        rootTables.add("OE");
+        rootTables.add("SF");
+        rootTables.add("TK");
 
-        SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
-        DateTime before = DateTime.now();
-        List<Entry> children = c.getTableOfContents(table);
-        DateTime after = DateTime.now();
-        c.generateFile(table, before, after, children);
+        for (String table : rootTables) {
+            // String table = "BO";
 
-        c = new SCBTreeStructure(new Locale("en", "US"));
-        before = DateTime.now();
-        children = c.getTableOfContents(table);
-        after = DateTime.now();
-        c.generateFile(table, before, after, children);
+            SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
+            DateTime before = DateTime.now();
+            List<Entry> children = c.getTableOfContents(table);
+            DateTime after = DateTime.now();
+            c.generateFile(table, before, after, children);
+
+            c = new SCBTreeStructure(new Locale("en", "US"));
+            before = DateTime.now();
+            children = c.getTableOfContents(table);
+            after = DateTime.now();
+            c.generateFile(table, before, after, children);
+        }
 
         File f = new File("values");
         File contentsDestination = new File("local/contents");

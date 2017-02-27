@@ -15,13 +15,13 @@ public class IgnorePrependingTableClient extends AbstractClient {
     }
 
     @Override
-    public String get(String url) {
-        return super.get(url);
+    public String getRequest(String url) {
+        return super.getRequest(url);
     }
 
     @Override
-    public String post(String url, String query) {
-        return super.post(url, query);
+    public String postRequest(String url, String query) {
+        return super.postRequest(url, query);
     }
 
     @Override

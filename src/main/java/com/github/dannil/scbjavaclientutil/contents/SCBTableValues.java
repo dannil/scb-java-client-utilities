@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import com.github.dannil.scbjavaclient.exception.SCBClientUrlNotFoundException;
+import com.github.dannil.scbjavaclient.exception.SCBClientNotFoundException;
 import com.github.dannil.scbjavaclientutil.client.IgnorePrependingTableClient;
 import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
@@ -60,10 +60,10 @@ public class SCBTableValues {
         try {
             IgnorePrependingTableClient c = new IgnorePrependingTableClient(new Locale("sv", "SE"));
 
-            System.out.println("getValues(String, Entry): calling getValues(String, Entry) with address "
-                    + actualTable);
+            System.out.println("getValues(String, Entry): calling getValues(" + actualTable + ") ["
+                    + c.getLocale().getLanguage() + "]");
 
-            response = c.get(actualTable);
+            response = c.getRequest(actualTable);
             if (response.contains("variables")) {
                 String formattedParent = this.baseDirWithDate.toString() + "/" + actualTable.replace('/', '-');
 
@@ -75,7 +75,7 @@ public class SCBTableValues {
                 File file = new File(builder.toString());
                 FileUtility.writeToSystem(file, response);
             }
-        } catch (SCBClientUrlNotFoundException e) {
+        } catch (SCBClientNotFoundException e) {
             System.err.println(e);
         }
 
