@@ -67,7 +67,7 @@ public class SCBTableInputs {
             // actualTable + ") ["
             // + c.getLocale().getLanguage() + "]");
 
-            response = c.getRequest(c.getUrl() + actualTable);
+            response = c.doGetRequest(c.getUrl() + actualTable);
             if (response.contains("variables")) {
                 String formattedParent = this.baseDirWithDate.toString() + "/" + actualTable.replace('/', '-');
 

@@ -31,7 +31,7 @@ public class SCBTreeStructure {
 
         String response = null;
         try {
-            response = this.client.getRequest(currentAddress + "/");
+            response = this.client.doGetRequest(currentAddress + "/");
         } catch (SCBClientException e) {
             System.err.println(e.getMessage());
             return new ArrayList<Entry>();
