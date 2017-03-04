@@ -31,7 +31,7 @@ public class SCBTreeStructure {
 
         String response = null;
         try {
-            response = this.client.doGetRequest(currentAddress + "/");
+            response = this.client.doGetRequest(client.getUrl() + currentAddress);
         } catch (SCBClientException e) {
             System.err.println(e.getMessage());
             return new ArrayList<Entry>();
@@ -50,7 +50,7 @@ public class SCBTreeStructure {
 
                 Thread.sleep(1000);
 
-                List<Entry> children = getTableOfContents(currentAddress + "/" + entry.getId());
+                List<Entry> children = getTableOfContents(currentAddress + entry.getId() + "/");
                 if (children.size() > 0) {
                     entry.addChildren(children);
                 }
