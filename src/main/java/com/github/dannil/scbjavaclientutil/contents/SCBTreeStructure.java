@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
@@ -18,6 +19,10 @@ import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import org.joda.time.DateTime;
@@ -31,17 +36,17 @@ public class SCBTreeStructure {
         this.client = new IgnorePrependingTableClient(locale);
     }
 
-    public List<Entry> getTableOfContents(String currentAddress) throws InterruptedException {
-        System.out.println("getTableOfContents(String): calling getTableOfContents(" + currentAddress + ") ["
-                + this.client.getLocale().getLanguage() + "]");
+    public List<Entry> getTree(String table) throws InterruptedException {
+        System.out.println(
+                "getTree(String): calling getTree(" + table + ") [" + this.client.getLocale().getLanguage() + "]");
 
-        if (currentAddress.length() > 0) {
-            currentAddress = currentAddress + '/';
+        if (table.length() > 0) {
+            table = table + '/';
         }
 
         String response = null;
         try {
-            response = this.client.doGetRequest(client.getUrl() + currentAddress);
+            response = this.client.doGetRequest(client.getUrl() + table);
         } catch (SCBClientException e) {
             System.err.println(e.getMessage());
             return new ArrayList<Entry>();
@@ -58,10 +63,10 @@ public class SCBTreeStructure {
                 entry.setId(next.get("id").asText());
                 entry.setText(next.get("text").asText());
 
-                Thread.sleep(1000);
+                Thread.sleep(600);
 
-                String nextTable = currentAddress + entry.getId();
-                List<Entry> children = getTableOfContents(nextTable);
+                String nextTable = table + entry.getId();
+                List<Entry> children = getTree(nextTable);
                 if (children.size() > 0) {
                     entry.addChildren(children);
                 }
@@ -69,6 +74,33 @@ public class SCBTreeStructure {
             }
         }
         return entries;
+    }
+
+    public List<Entry> getTree(String table, File file) throws IOException {
+        String json = new String(Files.readAllBytes(file.toPath()));
+
+        JsonParser parser = new JsonParser();
+        JsonElement element = parser.parse(json);
+
+        for (JsonElement e : element.getAsJsonArray()) {
+            JsonObject obj = e.getAsJsonObject();
+            if (Objects.equals(obj.get("id").getAsString(), table)) {
+                JsonElement children = obj.get("children");
+                if (children == null) {
+                    return null;
+                }
+                JsonArray array = children.getAsJsonArray();
+
+                String subJson = array.toString();
+
+                Gson gson = new GsonBuilder().create();
+                List<Entry> entries = gson.fromJson(subJson, new TypeToken<List<Entry>>() {
+                }.getType());
+
+                return entries;
+            }
+        }
+        return null;
     }
 
     public void generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
