@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Collection<String> rootTables = new ArrayList<>();
-        // rootTables.add("");
+        rootTables.add("");
         rootTables.add("AM");
         rootTables.add("BO");
         rootTables.add("FM");
@@ -40,8 +40,6 @@ public class Main {
         rootTables.add("TK");
 
         for (String table : rootTables) {
-            // String table = "BO";
-
             SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
             DateTime before = DateTime.now();
             List<Entry> children = c.getTableOfContents(table);

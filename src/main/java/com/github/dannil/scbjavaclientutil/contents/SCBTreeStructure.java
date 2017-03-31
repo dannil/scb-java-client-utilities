@@ -35,6 +35,10 @@ public class SCBTreeStructure {
         System.out.println("getTableOfContents(String): calling getTableOfContents(" + currentAddress + ") ["
                 + this.client.getLocale().getLanguage() + "]");
 
+        if (currentAddress.length() > 0) {
+            currentAddress = currentAddress + '/';
+        }
+
         String response = null;
         try {
             response = this.client.doGetRequest(client.getUrl() + currentAddress);
@@ -56,7 +60,8 @@ public class SCBTreeStructure {
 
                 Thread.sleep(1000);
 
-                List<Entry> children = getTableOfContents(currentAddress + "/" + entry.getId());
+                String nextTable = currentAddress + entry.getId();
+                List<Entry> children = getTableOfContents(nextTable);
                 if (children.size() > 0) {
                     entry.addChildren(children);
                 }
