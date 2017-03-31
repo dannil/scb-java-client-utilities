@@ -56,7 +56,7 @@ public class SCBTreeStructure {
 
                 Thread.sleep(1000);
 
-                List<Entry> children = getTableOfContents(currentAddress + entry.getId() + "/");
+                List<Entry> children = getTableOfContents(currentAddress + "/" + entry.getId());
                 if (children.size() > 0) {
                     entry.addChildren(children);
                 }
