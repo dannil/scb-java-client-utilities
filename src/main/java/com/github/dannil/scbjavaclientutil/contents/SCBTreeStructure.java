@@ -84,7 +84,7 @@ public class SCBTreeStructure {
 
         for (JsonElement e : element.getAsJsonArray()) {
             JsonObject obj = e.getAsJsonObject();
-            if (Objects.equals(obj.get("id").getAsString(), table)) {
+            if (table == "" || Objects.equals(obj.get("id").getAsString(), table)) {
                 JsonElement children = obj.get("children");
                 if (children == null) {
                     return null;
