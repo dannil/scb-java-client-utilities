@@ -3,13 +3,15 @@ package com.github.dannil.scbjavaclientutil.contents;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
+import java.util.TreeSet;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
@@ -19,10 +21,6 @@ import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import org.joda.time.DateTime;
@@ -76,31 +74,79 @@ public class SCBTreeStructure {
         return entries;
     }
 
-    public List<Entry> getTree(String table, File file) throws IOException {
-        String json = new String(Files.readAllBytes(file.toPath()));
+    // public List<Entry> getTree(String table, File file) throws IOException {
+    // String json = new String(Files.readAllBytes(file.toPath()));
+    // System.out.println(json);
+    //
+    // JsonParser parser = new JsonParser();
+    // JsonElement element = parser.parse(json);
+    //
+    // for (JsonElement e : element.getAsJsonArray()) {
+    // JsonObject obj = e.getAsJsonObject();
+    // System.out.println(obj);
+    // if (table == "" || Objects.equals(obj.get("id").getAsString(), table)) {
+    // JsonElement children = obj.get("children");
+    // if (children == null) {
+    // return null;
+    // }
+    // JsonArray array = children.getAsJsonArray();
+    //
+    // String subJson = array.toString();
+    //
+    // Gson gson = new GsonBuilder().create();
+    // List<Entry> entries = gson.fromJson(subJson, new TypeToken<List<Entry>>() {
+    // }.getType());
+    //
+    // return entries;
+    // }
+    // }
+    // return null;
+    // }
 
-        JsonParser parser = new JsonParser();
-        JsonElement element = parser.parse(json);
+    public Collection<String> getTree2(String table, File f) throws IOException {
+        // convert
 
-        for (JsonElement e : element.getAsJsonArray()) {
-            JsonObject obj = e.getAsJsonObject();
-            if (table == "" || Objects.equals(obj.get("id").getAsString(), table)) {
-                JsonElement children = obj.get("children");
-                if (children == null) {
-                    return null;
-                }
-                JsonArray array = children.getAsJsonArray();
+        String json = new String(Files.readAllBytes(f.toPath()));
 
-                String subJson = array.toString();
+        Gson gson = new GsonBuilder().create();
 
-                Gson gson = new GsonBuilder().create();
-                List<Entry> entries = gson.fromJson(subJson, new TypeToken<List<Entry>>() {
-                }.getType());
+        List<Entry> entries = gson.fromJson(json, new TypeToken<List<Entry>>() {
+        }.getType());
 
-                return entries;
+        Entry rootChild = new Entry();
+        rootChild.setId(table);
+        rootChild.addChildren(entries);
+
+        return getTree2("", rootChild);
+    }
+
+    public Collection<String> getTree2(String table, Entry child) {
+        // if (this.baseDirWithDate == null) {
+        // DateTime now = DateTime.now();
+        // String formattedNow = now.toLocalDateTime().toString().replace(':', '-');
+        //
+        // this.baseDirWithDate = new File(this.baseDir.getCanonicalPath() + "_" +
+        // formattedNow);
+        // this.baseDirWithDate.mkdir();
+        // }
+        //
+
+        Collection<String> ids = new TreeSet<String>(Collator.getInstance());
+        String actualTable = table;
+        if (table.length() > 0) {
+            actualTable += "/" + child.getId();
+        } else {
+            actualTable += child.getId();
+        }
+        ids.add(actualTable + "/");
+
+        if (child.getChildren() != null) {
+            for (Entry child2 : child.getChildren()) {
+                ids.addAll(getTree2(actualTable, child2));
             }
         }
-        return null;
+
+        return ids;
     }
 
     public void generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
