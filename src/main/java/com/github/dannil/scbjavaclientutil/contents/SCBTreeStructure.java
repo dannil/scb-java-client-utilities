@@ -103,7 +103,7 @@ public class SCBTreeStructure {
     // return null;
     // }
 
-    public Collection<String> getTree2(String table, File f) throws IOException {
+    public Collection<String> getTables(String table, File f) throws IOException {
         // convert
 
         String json = new String(Files.readAllBytes(f.toPath()));
@@ -117,20 +117,10 @@ public class SCBTreeStructure {
         rootChild.setId(table);
         rootChild.addChildren(entries);
 
-        return getTree2("", rootChild);
+        return getTables("", rootChild);
     }
 
-    public Collection<String> getTree2(String table, Entry child) {
-        // if (this.baseDirWithDate == null) {
-        // DateTime now = DateTime.now();
-        // String formattedNow = now.toLocalDateTime().toString().replace(':', '-');
-        //
-        // this.baseDirWithDate = new File(this.baseDir.getCanonicalPath() + "_" +
-        // formattedNow);
-        // this.baseDirWithDate.mkdir();
-        // }
-        //
-
+    public Collection<String> getTables(String table, Entry child) {
         Collection<String> ids = new TreeSet<String>(Collator.getInstance());
         String actualTable = table;
         if (table.length() > 0) {
@@ -142,7 +132,7 @@ public class SCBTreeStructure {
 
         if (child.getChildren() != null) {
             for (Entry child2 : child.getChildren()) {
-                ids.addAll(getTree2(actualTable, child2));
+                ids.addAll(getTables(actualTable, child2));
             }
         }
 
