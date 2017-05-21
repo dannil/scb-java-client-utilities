@@ -11,7 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeSet;
+
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.dannil.scbjavaclient.exception.SCBClientException;
@@ -21,10 +25,11 @@ import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
 
 public class SCBTreeStructure {
 
@@ -74,34 +79,33 @@ public class SCBTreeStructure {
         return entries;
     }
 
-    // public List<Entry> getTree(String table, File file) throws IOException {
-    // String json = new String(Files.readAllBytes(file.toPath()));
-    // System.out.println(json);
-    //
-    // JsonParser parser = new JsonParser();
-    // JsonElement element = parser.parse(json);
-    //
-    // for (JsonElement e : element.getAsJsonArray()) {
-    // JsonObject obj = e.getAsJsonObject();
-    // System.out.println(obj);
-    // if (table == "" || Objects.equals(obj.get("id").getAsString(), table)) {
-    // JsonElement children = obj.get("children");
-    // if (children == null) {
-    // return null;
-    // }
-    // JsonArray array = children.getAsJsonArray();
-    //
-    // String subJson = array.toString();
-    //
-    // Gson gson = new GsonBuilder().create();
-    // List<Entry> entries = gson.fromJson(subJson, new TypeToken<List<Entry>>() {
-    // }.getType());
-    //
-    // return entries;
-    // }
-    // }
-    // return null;
-    // }
+    public List<Entry> getTree(String table, File file) throws IOException {
+        String json = new String(Files.readAllBytes(file.toPath()));
+        System.out.println(json);
+
+        JsonParser parser = new JsonParser();
+        JsonElement element = parser.parse(json);
+
+        for (JsonElement e : element.getAsJsonArray()) {
+            JsonObject obj = e.getAsJsonObject();
+            if (table == "" || Objects.equals(obj.get("id").getAsString(), table)) {
+                JsonElement children = obj.get("children");
+                if (children == null) {
+                    return null;
+                }
+                JsonArray array = children.getAsJsonArray();
+
+                String subJson = array.toString();
+
+                Gson gson = new GsonBuilder().create();
+                List<Entry> entries = gson.fromJson(subJson, new TypeToken<List<Entry>>() {
+                }.getType());
+
+                return entries;
+            }
+        }
+        return null;
+    }
 
     public Collection<String> getTables(String table, File f) throws IOException {
         // convert
