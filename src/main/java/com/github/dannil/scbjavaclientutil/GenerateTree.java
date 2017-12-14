@@ -1,5 +1,6 @@
 package com.github.dannil.scbjavaclientutil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,44 +40,42 @@ public class GenerateTree {
         subTables.add("TK");
 
         SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
-        // Run tree generation for Swedish locale
-        DateTime beforeSv = DateTime.now();
-        List<Entry> childrenSv = c.getTree("");
-        DateTime afterSv = DateTime.now();
-        c.generateFile("", beforeSv, afterSv, childrenSv);
-
-        // Run tree generation for English locale
-        c = new SCBTreeStructure(new Locale("en", "US"));
-        DateTime beforeEn = DateTime.now();
-        List<Entry> childrenEn = c.getTree("");
-        DateTime afterEn = DateTime.now();
-        c.generateFile("", beforeEn, afterEn, childrenEn);
-
-        // // Generate sub tree files for Swedish locale
-        // c = new SCBTreeStructure(new Locale("sv", "SE"));
-        // for (String table : subTables) {
-        // DateTime before = DateTime.now();
-        // File f = new
-        // File("scb_2017-03-31T14-40-16.183_2017-03-31T16-11-54.627_sv.json");
-        // List<Entry> entries = c.getTree(table, f);
-        // DateTime after = DateTime.now();
-        // if (entries != null) {
-        // c.generateFile(table, before, after, entries);
-        // }
-        // }
+        // // Run tree generation for Swedish locale
+        // DateTime beforeSv = DateTime.now();
+        // List<Entry> childrenSv = c.getTree("");
+        // DateTime afterSv = DateTime.now();
+        // c.generateFile("", beforeSv, afterSv, childrenSv);
         //
-        // // Generate sub tree files for English locale
+        // // Run tree generation for English locale
         // c = new SCBTreeStructure(new Locale("en", "US"));
-        // for (String table : subTables) {
-        // DateTime before = DateTime.now();
-        // File f = new
-        // File("scb_2017-03-31T14-40-16.183_2017-03-31T16-11-54.627_sv.json");
-        // List<Entry> entries = c.getTree(table, f);
-        // DateTime after = DateTime.now();
-        // if (entries != null) {
-        // c.generateFile(table, before, after, entries);
-        // }
-        // }
+        // DateTime beforeEn = DateTime.now();
+        // List<Entry> childrenEn = c.getTree("");
+        // DateTime afterEn = DateTime.now();
+        // c.generateFile("", beforeEn, afterEn, childrenEn);
+
+        // Generate sub tree files for Swedish locale
+        c = new SCBTreeStructure(new Locale("sv", "SE"));
+        for (String table : subTables) {
+            DateTime before = DateTime.now();
+            File f = new File("scb_2017-08-31T09-47-02.011_2017-08-31T10-38-41.491_sv.json");
+            List<Entry> entries = c.getTree(table, f);
+            DateTime after = DateTime.now();
+            if (entries != null) {
+                c.generateFile(table, before, after, entries);
+            }
+        }
+
+        // Generate sub tree files for English locale
+        c = new SCBTreeStructure(new Locale("en", "US"));
+        for (String table : subTables) {
+            DateTime before = DateTime.now();
+            File f = new File("scb_2017-08-31T10-38-41.588_2017-08-31T11-07-17.550_en.json");
+            List<Entry> entries = c.getTree(table, f);
+            DateTime after = DateTime.now();
+            if (entries != null) {
+                c.generateFile(table, before, after, entries);
+            }
+        }
     }
 
 }

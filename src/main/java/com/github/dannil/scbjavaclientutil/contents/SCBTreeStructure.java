@@ -5,9 +5,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -200,6 +202,48 @@ public class SCBTreeStructure {
         }
 
         return map;
+    }
+
+    public Map<String, Integer> getImplementationPriority(File tree, Collection<String> implementedTables)
+            throws IOException {
+        Collection<String> implementedTablesWithoutLast = new ArrayList<>();
+        for (String table : implementedTables) {
+            String[] pa = table.split("/");
+            String withoutLast = "";
+            for (int i = 0; i < pa.length - 1; i++) {
+                withoutLast += pa[i] + "/";
+            }
+            implementedTablesWithoutLast.add(withoutLast);
+        }
+        Map<String, Integer> priorities = new LinkedHashMap<>();
+        Collection<String> allTables = getTables("", tree);
+        for (String table : allTables) {
+            int weight = 20;
+            String[] parts = table.split("/");
+            for (int i = parts.length; i > 0; i--) {
+                String[] subParts = new String[i];
+                System.arraycopy(parts, 0, subParts, 0, i);
+                String subTable = "";
+                for (int j = 0; j < subParts.length; j++) {
+                    subTable += subParts[j] + "/";
+                }
+                if (implementedTablesWithoutLast.contains(subTable)) {
+                    priorities.put(table, weight);
+                    break;
+                }
+                weight--;
+            }
+            if (!priorities.containsKey(table)) {
+                priorities.put(table, weight - parts.length);
+            }
+        }
+        for (String implemented : implementedTables) {
+            if (priorities.containsKey(implemented)) {
+                priorities.remove(implemented);
+            }
+        }
+        priorities.remove("/");
+        return priorities;
     }
 
 }
