@@ -40,7 +40,7 @@ public class GenerateTree {
         subTables.add("TK");
 
         SCBTreeStructure c = new SCBTreeStructure(new Locale("sv", "SE"));
-        // // Run tree generation for Swedish locale
+        // Run tree generation for Swedish locale
         // DateTime beforeSv = DateTime.now();
         // List<Entry> childrenSv = c.getTree("");
         // DateTime afterSv = DateTime.now();
@@ -57,7 +57,7 @@ public class GenerateTree {
         c = new SCBTreeStructure(new Locale("sv", "SE"));
         for (String table : subTables) {
             DateTime before = DateTime.now();
-            File f = new File("scb_2017-08-31T09-47-02.011_2017-08-31T10-38-41.491_sv.json");
+            File f = new File("scb_2017-12-15T07-58-37.901_2017-12-15T08-51-33.168_sv.json");
             List<Entry> entries = c.getTree(table, f);
             DateTime after = DateTime.now();
             if (entries != null) {
@@ -69,7 +69,7 @@ public class GenerateTree {
         c = new SCBTreeStructure(new Locale("en", "US"));
         for (String table : subTables) {
             DateTime before = DateTime.now();
-            File f = new File("scb_2017-08-31T10-38-41.588_2017-08-31T11-07-17.550_en.json");
+            File f = new File("scb_2017-12-15T08-51-33.247_2017-12-15T09-21-01.263_en.json");
             List<Entry> entries = c.getTree(table, f);
             DateTime after = DateTime.now();
             if (entries != null) {
