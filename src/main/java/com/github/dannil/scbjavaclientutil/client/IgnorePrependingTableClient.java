@@ -3,6 +3,7 @@ package com.github.dannil.scbjavaclientutil.client;
 import java.util.Locale;
 
 import com.github.dannil.scbjavaclient.client.AbstractClient;
+import com.github.dannil.scbjavaclient.http.URLEndpoint;
 
 public class IgnorePrependingTableClient extends AbstractClient {
 
@@ -25,7 +26,7 @@ public class IgnorePrependingTableClient extends AbstractClient {
     }
 
     @Override
-    public String getUrl() {
+    public URLEndpoint getUrl() {
         return getRootUrl();
     }
 

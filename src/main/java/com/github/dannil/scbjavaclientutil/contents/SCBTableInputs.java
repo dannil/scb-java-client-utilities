@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.util.List;
 import java.util.Locale;
 
-import com.github.dannil.scbjavaclient.exception.SCBClientNotFoundException;
 import com.github.dannil.scbjavaclientutil.client.IgnorePrependingTableClient;
 import com.github.dannil.scbjavaclientutil.files.FileUtility;
 import com.github.dannil.scbjavaclientutil.model.Entry;
@@ -79,7 +78,7 @@ public class SCBTableInputs {
                 File file = new File(builder.toString());
                 FileUtility.writeToSystem(file, response);
             }
-        } catch (SCBClientNotFoundException e) {
+        } catch (Exception e) {
             System.err.println(e);
         }
 
