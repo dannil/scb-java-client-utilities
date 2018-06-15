@@ -24,8 +24,13 @@ public class SCBTableInputs {
     public SCBTableInputs(File baseDir) {
         this.baseDir = baseDir;
     }
+    
+    // Used when we want to start at the root table
+    public void getInputs(File f) throws InterruptedException, IOException {
+        getInputs(f, "");
+    }
 
-    public void getInputs(String table, File f) throws InterruptedException, IOException {
+    public void getInputs(File f, String table) throws InterruptedException, IOException {
         // convert
 
         String json = new String(Files.readAllBytes(f.toPath()));
@@ -42,7 +47,7 @@ public class SCBTableInputs {
         getInputs("", rootChild);
     }
 
-    public void getInputs(String table, Entry child) throws InterruptedException, IOException {
+    private void getInputs(String table, Entry child) throws InterruptedException, IOException {
         if (this.baseDirWithDate == null) {
             DateTime now = DateTime.now();
             String formattedNow = now.toLocalDateTime().toString().replace(':', '-');

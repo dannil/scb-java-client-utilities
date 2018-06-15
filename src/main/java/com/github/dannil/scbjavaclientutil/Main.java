@@ -14,10 +14,8 @@ import com.github.dannil.scbjavaclientutil.contents.SCBTreeStructure;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        // File inputsLocation = new File("inputs");
         // File treeLocation = new File("local/tree");
         //
-        // SCBTableInputs i = new SCBTableInputs(inputsLocation);
         // SCBTableDataSet s = new SCBTableDataSet(treeLocation);
         //
         File jsonLocation = new File("scb_2017-03-31T20-46-59.675_2017-03-31T21-56-23.252_sv.json");
@@ -45,13 +43,7 @@ public class Main {
             if (entry.getValue() < 4) {
                 System.out.println(entry);
             }
-
         }
-        //
-        // // i.getInputs("", jsonLocation);
-        //
-        // // File f3 = new File("local/values_2016-10-24T21-14-03.307");
-        // // s.getStatistics(f3);
 
         System.out.println("Done!");
     }
