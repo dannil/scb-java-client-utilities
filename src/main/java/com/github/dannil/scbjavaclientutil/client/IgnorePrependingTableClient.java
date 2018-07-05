@@ -3,7 +3,7 @@ package com.github.dannil.scbjavaclientutil.client;
 import java.util.Locale;
 
 import com.github.dannil.scbjavaclient.client.AbstractClient;
-import com.github.dannil.scbjavaclient.http.URLEndpoint;
+import com.github.dannil.scbjavaclient.communication.URLEndpoint;
 
 public class IgnorePrependingTableClient extends AbstractClient {
 
