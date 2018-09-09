@@ -245,5 +245,25 @@ public class SCBTreeStructure {
         priorities.remove("/");
         return priorities;
     }
+    
+    public String getParent(String table, int stepsBackwards) {
+        String parent = table;
+        for (int i = 0; i < stepsBackwards; i++) {
+            parent = getParent(parent);
+        }
+        return parent;
+    }
+    
+    public String getParent(String table) {
+        String tableWithoutLast = table;
+        if (table.endsWith("/")) {
+            tableWithoutLast = table.substring(0, table.length() - 1);
+        }
+        String directParent = tableWithoutLast;
+        if (directParent.contains("/")) {
+            directParent = tableWithoutLast.substring(0, tableWithoutLast.lastIndexOf("/") + 1);
+        }
+        return directParent;
+    }
 
 }
