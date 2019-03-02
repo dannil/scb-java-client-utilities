@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -145,7 +144,7 @@ public class SCBTreeStructure {
         return ids;
     }
 
-    public void generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
+    public File generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
         Duration duration = new Duration(before, after);
         long minutes = duration.getStandardMinutes();
         System.out.println("Elapsed time (minutes): " + minutes);
@@ -169,6 +168,7 @@ public class SCBTreeStructure {
         System.out.println("Writing " + builder.toString());
         File file = new File(builder.toString());
         FileUtility.writeToSystem(file, entries);
+        return file;
     }
 
     public Map<String, Integer> getLevels(File file) throws IOException {
