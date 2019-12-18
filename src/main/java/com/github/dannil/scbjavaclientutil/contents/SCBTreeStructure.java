@@ -143,6 +143,18 @@ public class SCBTreeStructure {
 
         return ids;
     }
+    
+    public List<String> getSubTables(String table) {
+        String response = this.client.doGetRequest(this.client.getUrl().toString() + table);
+        JsonArray array = new JsonParser().parse(response).getAsJsonArray();
+        List<String> subTables = new ArrayList<String>();
+        for (JsonElement element : array) {
+            JsonObject object = element.getAsJsonObject();
+            String id = object.get("id").getAsString();
+            subTables.add(id);
+        }
+        return subTables;
+    }
 
     public File generateFile(String table, DateTime before, DateTime after, List<Entry> entries) throws IOException {
         Duration duration = new Duration(before, after);
