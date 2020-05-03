@@ -84,8 +84,7 @@ public class SCBTreeStructure {
         String json = new String(Files.readAllBytes(file.toPath()));
         System.out.println(json);
 
-        JsonParser parser = new JsonParser();
-        JsonElement element = parser.parse(json);
+        JsonElement element = JsonParser.parseString(json);
 
         for (JsonElement e : element.getAsJsonArray()) {
             JsonObject obj = e.getAsJsonObject();
@@ -146,7 +145,7 @@ public class SCBTreeStructure {
     
     public List<String> getSubTables(String table) {
         String response = this.client.doGetRequest(this.client.getUrl().toString() + table);
-        JsonArray array = new JsonParser().parse(response).getAsJsonArray();
+        JsonArray array = JsonParser.parseString(response).getAsJsonArray();
         List<String> subTables = new ArrayList<String>();
         for (JsonElement element : array) {
             JsonObject object = element.getAsJsonObject();
